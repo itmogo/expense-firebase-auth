@@ -40,6 +40,7 @@ function ExpForm(props) {
         <div>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>
+            <i class="fas fa-bars "></i>
               <b>Item or Service</b>
             </Form.Label>
            {/*} <Form.Control

@@ -22,18 +22,21 @@ function ExpItem(props) {
     <div className="container contShadow">
     <div className="row item_down">
       <div>
+      <i class="fas fa-bars"></i>
         <b>Item or Service</b>
         <br />
         <div>{props.user.noteTitle}</div>
       </div>
       <br />
       <div>
+      <i class="far fa-calendar-alt"></i>
         <b>Date Purchased</b>
         <br />
         <div>{props.user.noteDate}</div>
       </div>
       <br />
       <div>
+      <i class="fab fa-gg-circle"></i>
         <b>Amount Paid-GH¢</b>
         <br />
         <div>{props.user.noteText}</div>
