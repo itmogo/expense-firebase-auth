@@ -1,15 +1,16 @@
 import React, { useState } from "react";
+import { addUserAction } from "../actions/userActions";
 import { connect } from "react-redux";
-import { updateUserAction } from "../actions/userActions";
+import "./form.css";
 import { Button, Form } from "react-bootstrap";
 
 //user sign up component
-function EditUserForm(props) {
+function ExpForm(props) {
   // default user state is an object with empty string as value
   const [state, setState] = useState({
-    noteTitle: props.user.noteTitle,
-    noteDate: props.user.noteDate,
-    noteText: props.user.noteText,
+    noteTitle: "",
+    noteDate: "",
+    noteText: "",
   });
 
   //a function that get called anytime an input field changes
@@ -28,70 +29,90 @@ function EditUserForm(props) {
   function handleSubmit() {
     //we call addUser function passed to this user form component
     //as a prop from the App component
-
-    let user = { ...state, id: props.user.id };
-    props.updateUserAction(props.user.id, user);
-    props.hideModal();
+    let userId = 10000 + Math.random() * 10000000;
+    let user = { ...state, id: userId };
+    props.addUserAction(user);
   }
 
   return (
     <div>
-      <form>
+      <form className="formShadow">
         <div>
           <Form.Group controlId="formBasicEmail">
-            <Form.Label>Note Title </Form.Label>
-            <Form.Control
+            <Form.Label>
+              <b>Item or Service</b>
+            </Form.Label>
+           {/*} <Form.Control
               type="text"
               placeholder="Enter your note title"
               name="noteTitle"
               value={state.noteTitle} //the value will the same as data in the state
               onChange={handleOnChange} //we setup onchange to call our handle onchange function
               required
-            />
+  />*/}
+
+            <select            
+              class="form-select"
+              type="text"
+              value={state.noteTitle}
+              name="noteTitle"
+              aria-label="Default select example"            
+              onChange={handleOnChange}            >
+              <option selected>Please select your item or service</option>
+              <option value={state.food}>Food and Drink</option>
+              <option value={state.accomodation}>Accomodation</option>
+              <option value={state.transport}>Transportation</option>
+              <option value={state.house}>Housing and Rent</option>
+              <option value={state.misc}>Miscellaneous</option>
+            </select>
           </Form.Group>
         </div>
         <br />
         <Form.Group controlId="formBasicEmail">
-          <Form.Label>Date Recorded</Form.Label>
+          <Form.Label>
+          <i class="far fa-calendar-alt"></i><b>Date Purchased</b>
+          </Form.Label>
           <Form.Control
             type="date"
-            placeholder="Enter note date"
+            placeholder="Enter your date"
             name="noteDate"
             value={state.noteDate}
             onChange={handleOnChange} //we setup onchange to call our handle onchange function
             required
           />
         </Form.Group>
+
         <br />
         <Form.Group>
-          <Form.Label>Note Text</Form.Label><br/>
-          <textarea
-            type="text"
+          <Form.Label>
+          <i class="fab fa-gg-circle"></i><b>Amount Paid - GH¢</b>
+          </Form.Label>
+          <br />
+          <Form.Control
+            type="number"
             name="noteText"
             value={state.noteText}
             onChange={handleOnChange} //we setup onchange to call our handle onchange function
-            placeholder="Enter your notes"
+            placeholder="Enter amount paid"
             required
-            row="5"
-            cols="40"
-
           />
         </Form.Group>
+
         <br />
-          <div>
+
+        <div>
           {/* the create user button call the handleSubmit functon when clicked */}
           <Button type="button" variant="primary" onClick={handleSubmit}>
-            Update Note 
+            <span> New Expense</span>
           </Button>
         </div>
       </form>
     </div>
   );
 }
-
-let mapDispatchToProps = {
-  updateUserAction,
-};
-
-let mapStateToProps = () => {};
-export default connect(mapStateToProps, mapDispatchToProps)(EditUserForm);
+// function mapStateToProps(state) {
+//   return {
+//     state: state,
+//   };
+// }
+export default connect(null, { addUserAction })(ExpForm);

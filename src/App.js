@@ -1,7 +1,7 @@
 //import logo from './logo.svg';
 import './App.css';
-import UserForm from './components/UserForm';
-import UserList from './components/UserList';
+import ExpForm from './components/ExpForm';
+import ExpList from './components/ExpList';
 import './components/form.css';
 
 function App() {
@@ -14,21 +14,21 @@ function App() {
     }}>
     
     <div className="container contapp">
-    <div><marquee><h3> A Note Book Application</h3></marquee>
+  <div><i><h5> Aunty Maggie's Expense Tracker Application</h5></i>
       <div className="row">
         <div className="col-md-5">
-        <h6>Note App Form</h6>
-          <UserForm />
+        <h6>Daily Expense</h6>
+          <ExpForm />
         </div>
 
         <div className="col-md-7">
-       <h6>Note App Details</h6>
-          <UserList />
+       <h6>Expense Records</h6>
+          <ExpList />
         </div>
       </div>
     </div>
-    </div>
-    </div>
+    </div>  
+    </div> 
 
   );
 }
