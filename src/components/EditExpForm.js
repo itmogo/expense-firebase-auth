@@ -8,6 +8,7 @@ function EditExpForm(props) {
   // default user state is an object with empty string as value
   const [state, setState] = useState({
     noteTitle: props.user.noteTitle,
+    noteService: props.user.noteService,
     noteDate: props.user.noteDate,
     noteText: props.user.noteText,
   });
@@ -39,7 +40,9 @@ function EditExpForm(props) {
       <form className="editForm">
         <div>
           <Form.Group controlId="formBasicEmail">
-            <Form.Label>Item or Service </Form.Label>
+            <Form.Label>
+            <i class="fas fa-bars "></i>
+            Category </Form.Label>
             <select            
             class="form-select"
             type="text"
@@ -47,7 +50,7 @@ function EditExpForm(props) {
             name="noteTitle"
             aria-label="Default select example"            
             onChange={handleOnChange}            >
-            <option selected>Please select your item or service</option>
+            <option selected>Please select your category</option>
             <option value={state.food}>Food and Drink</option>
             <option value={state.accomodation}>Accomodation</option>
             <option value={state.transport}>Transportation</option>
@@ -58,8 +61,27 @@ function EditExpForm(props) {
           </Form.Group>
         </div>
         <br />
+
         <Form.Group controlId="formBasicEmail">
-          <Form.Label>Date Purchased</Form.Label>
+          <Form.Label>
+            <i class="fas fa-list"></i>
+            <b>item / Service</b>
+          </Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Enter your item or service"
+            name="noteService"
+            value={state.noteService}
+            onChange={handleOnChange} //we setup onchange to call our handle onchange function
+            required
+          />
+        </Form.Group>
+
+        <br />
+        <Form.Group controlId="formBasicEmail">
+          <Form.Label>
+          <i class="far fa-calendar-alt"></i>
+          Date Purchased</Form.Label>
           <Form.Control
             type="date"
             placeholder="Enter date of purchase"
@@ -71,7 +93,9 @@ function EditExpForm(props) {
         </Form.Group>
         <br />
         <Form.Group>
-          <Form.Label>Amount Paid - GH</Form.Label><br/>
+          <Form.Label>
+          <i class="fab fa-gg-circle"></i>
+          Amount Paid - GH</Form.Label><br/>
           <Form.Control
             type="number"
             name="noteText"

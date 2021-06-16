@@ -2,7 +2,7 @@
 
 form{
     margin:  15px  10px;
-    height: 90vh;
+    height: 70vh;
 }
     
 .formShadow{
@@ -10,7 +10,7 @@ form{
     text-align: center;
     padding: 0 10px;
     border-radius: 15px;
-    height: 70vh;
+    height: 80vh;
     border: 1px solid pink;
     padding-bottom: 30px;
 }
@@ -60,10 +60,10 @@ b{
     font-size: small;
 }
 h5{
-    margin-bottom: 20px;
-    padding-top: 20px;
+    margin-bottom: 3px;
+    padding-top: 1px;
     color:#FF5733; 
-    margin-top: 20px;
+    margin-top: 1px;
     
 }
 .center{
@@ -79,5 +79,5 @@ h5{
 /*editForm*/
 .editForm{    
     background-color: #c49a91;
-    height: 60vh;
+    height: 80vh;
 }

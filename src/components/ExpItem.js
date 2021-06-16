@@ -23,9 +23,16 @@ function ExpItem(props) {
     <div className="row item_down">
       <div>
       <i class="fas fa-bars"></i>
-        <b>Item or Service</b>
+        <b>Category</b>
         <br />
         <div>{props.user.noteTitle}</div>
+      </div>
+      <br />
+      <div>
+      <i class="fas fa-list"></i>
+        <b>Item / Service</b>
+        <br />
+        <div>{props.user.noteService}</div>
       </div>
       <br />
       <div>

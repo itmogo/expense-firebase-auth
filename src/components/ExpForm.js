@@ -9,6 +9,7 @@ function ExpForm(props) {
   // default user state is an object with empty string as value
   const [state, setState] = useState({
     noteTitle: "",
+    noteservice: "",
     noteDate: "",
     noteText: "",
   });
@@ -32,6 +33,12 @@ function ExpForm(props) {
     let userId = 10000 + Math.random() * 10000000;
     let user = { ...state, id: userId };
     props.addUserAction(user);
+    setState({
+      noteTitle: "",
+      noteService:"",
+      noteDate: "",
+      noteText: "",
+    });
   }
 
   return (
@@ -40,10 +47,10 @@ function ExpForm(props) {
         <div>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>
-            <i class="fas fa-bars "></i>
-              <b>Item or Service</b>
+              <i class="fas fa-bars "></i>
+              <b>Category</b>
             </Form.Label>
-           {/*} <Form.Control
+            {/*} <Form.Control
               type="text"
               placeholder="Enter your note title"
               name="noteTitle"
@@ -52,14 +59,15 @@ function ExpForm(props) {
               required
   />*/}
 
-            <select            
+            <select
               class="form-select"
               type="text"
               value={state.noteTitle}
               name="noteTitle"
-              aria-label="Default select example"            
-              onChange={handleOnChange}            >
-              <option selected>Please select your item or service</option>
+              aria-label="Default select example"
+              onChange={handleOnChange}
+            >
+              <option selected>Please select your category</option>
               <option value={state.food}>Food and Drink</option>
               <option value={state.accomodation}>Accomodation</option>
               <option value={state.transport}>Transportation</option>
@@ -70,8 +78,27 @@ function ExpForm(props) {
         </div>
         <br />
         <Form.Group controlId="formBasicEmail">
+          <Form.Label> 
+            <i class="fas fa-list"></i>
+            
+            <b>Item / Service</b>
+          </Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Enter your item or service"
+            name="noteService"
+            value={state.noteService}
+            onChange={handleOnChange} //we setup onchange to call our handle onchange function
+            required
+          />
+        </Form.Group>
+
+        <br />
+
+        <Form.Group controlId="formBasicEmail">
           <Form.Label>
-          <i class="far fa-calendar-alt"></i><b>Date Purchased</b>
+            <i class="far fa-calendar-alt"></i>
+            <b>Date Purchased</b>
           </Form.Label>
           <Form.Control
             type="date"
@@ -86,7 +113,8 @@ function ExpForm(props) {
         <br />
         <Form.Group>
           <Form.Label>
-          <i class="fab fa-gg-circle"></i><b>Amount Paid - GH¢</b>
+            <i class="fab fa-gg-circle"></i>
+            <b>Amount Paid - GH¢</b>
           </Form.Label>
           <br />
           <Form.Control
