@@ -3,16 +3,17 @@
 import firebase from 'firebase';
 import 'firebase/firestore';
   // Your web app's Firebase configuration
+ 
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   const firebaseConfig = {
-    apiKey: "AIzaSyDQ3Tqw2Dr9m5RGhKp8VKz3N4gCEtCo9XI",
-    authDomain: "expense-c4029.firebaseapp.com",
-    projectId: "expense-c4029",
-    storageBucket: "expense-c4029.appspot.com",
-    messagingSenderId: "217318448959",
-    appId: "1:217318448959:web:259a88076063aa44837d8a",
-    measurementId: "G-X3NG8KEWJF"
-  };
+        apiKey: "AIzaSyA7PLqln9xu7bz4onziaYF10snEOvxt02o",
+        authDomain: "expense-firebase-7ce2c.firebaseapp.com",
+        projectId: "expense-firebase-7ce2c",
+        storageBucket: "expense-firebase-7ce2c.appspot.com",
+        messagingSenderId: "582524021984",
+        appId: "1:582524021984:web:1ef94a6ae81dfb9c1f3485",
+        measurementId: "G-GTRY9ZEW3M"
+      };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.firestore().settings({timestampsInSnapShots: true});
