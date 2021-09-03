@@ -7,12 +7,22 @@ export const addUserAction =(user) => {
     }
   }
   
+  //deleting data from firestore db and front-end
   export function deleteUserAction(id) {
-    return {
-      type: 'DELETE_USER',
-      payload: id,
+    return(dispatch, state, {getFirestore})=>{
+      getFirestore()
+      .collection("users")
+      .doc(id)
+      .delete()
+      .then(() =>{});
     };
-  }
+  };
+    
+    // {
+    //   type: 'DELETE_USER',
+    //   payload: id,
+    // };
+  
   
   export function updateUserAction(id, updatedUser) {
     return {
@@ -35,7 +45,9 @@ export const addUserAction =(user) => {
       .onSnapshot((snapshot) => {
         let users = [];
         snapshot.forEach((doc)=>{
-          users.push(doc.data());
+          // collecting data from snapshot and picking id 
+          // to data to help delete 
+          users.push({...doc.data(), id: doc.id});
         });
         console.log(users);
         dispatch({
