@@ -5,11 +5,6 @@ export const addUserAction =(user) => {
       .add({...user, timestamp: getFirestore().FieldValue.serverTimestamp()})
       .then((doc)=>{});
     }
-
-    // {
-    //   type: 'ADD_USER',
-    //   payload: user,
-    // };
   }
   
   export function deleteUserAction(id) {
@@ -24,5 +19,32 @@ export const addUserAction =(user) => {
       type: 'UPDATE_USER',
       payload: { id: id, updatedUserInfo: updatedUser },
     };
-  }
+  };
+
+  // get data from firebase db and display on UI
+  // create component didmount on apps
+  //import get all user in apps
+  //create mapstate and mapdispatch in app js
+  //create a case on reducers
+  // delete dispatch in add component
+
+  export const getAllUsers =() => {
+    return (dispatch, state, {getFirestore})=>{
+      getFirestore()
+      .collection("users")
+      .onSnapshot((snapshot) => {
+        let users = [];
+        snapshot.forEach((doc)=>{
+          users.push(doc.data());
+        });
+        console.log(users);
+        dispatch({
+          type: 'SET_ALL_USERS',
+          payload: users,
+        });
+      },
+      (err)=>{}
+      );
+    };
+  };
   

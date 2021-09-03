@@ -16,7 +16,7 @@ import 'firebase/firestore';
       };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-  firebase.firestore().settings({timestampsInSnapShots: true});
+  //firebase.firestore().settings({timestampsInSnapShots: true});
 
   
   export default firebase;
