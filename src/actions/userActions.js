@@ -51,6 +51,8 @@ export const addUserAction =(user) => {
     return (dispatch, state, {getFirestore})=>{
       getFirestore()
       .collection("users")
+      // sorting expense by title in ascending
+      .orderBy("noteTitle", "asc")
       .onSnapshot((snapshot) => {
         let users = [];
         snapshot.forEach((doc)=>{

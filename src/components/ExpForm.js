@@ -76,7 +76,7 @@ function ExpForm(props) {
             </select>
           </Form.Group>
         </div>
-        <br />
+        
         <Form.Group controlId="formBasicEmail">
           <Form.Label> 
             <i class="fas fa-list"></i>
@@ -92,8 +92,7 @@ function ExpForm(props) {
             required
           />
         </Form.Group>
-
-        <br />
+      
 
         <Form.Group controlId="formBasicEmail">
           <Form.Label>
@@ -109,8 +108,7 @@ function ExpForm(props) {
             required
           />
         </Form.Group>
-
-        <br />
+      
         <Form.Group>
           <Form.Label>
             <i class="fab fa-gg-circle"></i>
