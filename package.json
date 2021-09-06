@@ -1,5 +1,5 @@
 {
-  "name": "expense-tracker-crudv1-firebase",
+  "name": "expense-tracker-crudv1-firebase-auth",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

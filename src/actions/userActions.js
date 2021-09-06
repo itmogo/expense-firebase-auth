@@ -18,12 +18,8 @@ export const addUserAction =(user) => {
     };
   };
     
-    // {
-    //   type: 'DELETE_USER',
-    //   payload: id,
-    // };
-  
-  
+    
+  //updating data from firestore db and front-end
   export function updateUserAction(id, updatedUser) {
     return(dispatch, state, {getFirestore})=>{
       getFirestore()
@@ -34,10 +30,7 @@ export const addUserAction =(user) => {
       .catch((err) =>{});
       };
     
-    // // {
-    //   type: 'UPDATE_USER',
-    //   payload: { id: id, updatedUserInfo: updatedUser },
-    // };
+   
   };
 
   // get data from firebase db and display on UI
