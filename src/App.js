@@ -46,11 +46,12 @@ export class App extends Component {
     );
   }
 }
-
+// create map state to props function
 const mapStateToProps =(state)=>({
   users: state.users,  
 });
 
+// create map dispatch to props object
  const mapDispatchToProps ={
   getAllUsers,
 }
